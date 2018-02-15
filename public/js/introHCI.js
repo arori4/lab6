@@ -27,4 +27,21 @@ function addProjectDetails(e) {
 	var idNumber = projectID.substr('project'.length);
 
 	console.log("User clicked on project " + idNumber);
+
+	$.get("/project/" + idNumber, callBackFn)
+}
+
+function callBackFn(data) {
+	console.log(data);
+
+	var idToChoose = '#project' + data.id + ' .thumbnail .details';
+	var otherId = '#' + data.id;
+
+	console.log(idToChoose);
+
+	$(idToChoose).html(data.summary);
+}
+
+function randomizeColors(){
+
 }
